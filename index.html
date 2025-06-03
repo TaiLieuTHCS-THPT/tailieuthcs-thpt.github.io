@@ -163,34 +163,31 @@
     }
 
     .facebook { background: #1877f2; }
+    .email    { background: #d44638; }
     /*
     .youtube  { background: #ff0000; }
     .tiktok   { background: #000000; }
     .canva    { background: #00c4cc; }
     .bitly    { background: #ee6123; }
-    */
-    .email    { background: #d44638; }
-    /*
     .zalo     { background: #0180ef; }
     */
 
     .social a::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      bottom: -28px;
-      background: rgba(0, 0, 0, 0.75);
-      color: white;
-      font-size: 12px;
-      padding: 4px 8px;
-      border-radius: 4px;
-      opacity: 0;
-      transition: opacity 0.3s;
-      pointer-events: none;
-      white-space: nowrap;
+      content: attr(data-tooltip); /* Hiển thị tooltip */
+      position: absolute; /* Vị trí tuyệt đối so với phần tử cha */
+      bottom: -28px; /* Hiển thị bên dưới nút */
+      background: rgba(0, 0, 0, 0.75); /* Nền mờ */
+      color: white; /* Màu chữ trắng */
+      font-size: 12px; /* Kích thước chữ nhỏ */
+      padding: 4px 8px; /* Padding cho tooltip */
+      border-radius: 4px; /* Bo tròn góc */
+      opacity: 0; /* Ẩn tooltip ban đầu */
+      transition: opacity 0.3s; /* Hiệu ứng chuyển đổi mờ dần */
+      pointer-events: none; /* Không cho phép tương tác với tooltip */
+      white-space: nowrap; /* Ngăn ngắt dòng trong tooltip */
     }
-
     .social a:hover::after {
-      opacity: 1;
+      opacity: 1; /* Hiển thị tooltip khi hover */
     }
 
     /* Toast */
@@ -225,19 +222,18 @@
     .btn {
       width: 100%; /* Chiếm toàn bộ chiều ngang khung chứa */
       max-width: 500px; /* Giới hạn tối đa chiều rộng nếu khung lớn */
-      min-width: 280px;
-      margin: 20px auto; /* Căn giữa theo chiều ngang */
-    
-      color: white;
-      font-size: 20px;
-      padding: 18px 36px;
-      border-radius: 50vw;
-      border: none;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-      font-weight: bold;
-      text-align: center;
+      min-width: 280px; /* Giới hạn tối thiểu chiều rộng nếu khung nhỏ */
+      margin: 10px auto; /* Giảm khoảng cách giữa các nút */
+      color: white; /* Màu chữ trắng */
+      font-size: 20px; /* Kích thước chữ */
+      padding: 18px 36px; /* Padding cho nút */
+      border-radius: 50vw; /* Bo tròn nút */
+      border: none; /* Không có viền */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Đổ bóng cho nút */
+      cursor: pointer; /* Con trỏ khi hover */
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Hiệu ứng chuyển động mượt mà */
+      font-weight: bold; /* Chữ đậm */
+      text-align: center; /* Căn giữa chữ trong nút */
       display: block; /* Đảm bảo chiếm nguyên dòng và căn giữa */
     }
 
@@ -250,37 +246,37 @@
       transform: translateY(2px);
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-/*
-    .game-btn {
-      background-color: #3f9343;
-    }
 
-    .game-btn:hover {
-      background-color: #66bb6a ;
-    }
-
-    .dinhdanganh-btn {
-      background: linear-gradient(90deg, #d55884, #496bb4);
-    }
-
-    .dinhdanganh-btn:hover {
-      background: linear-gradient(90deg, #f78fb3, #6a89cc);
-    }
-
-    .maunen-btn {
-      background: linear-gradient(to right, #f5bd6f, #f677d0);
-    }
-
-    .maunen-btn:hover {
-      background: linear-gradient(to right, #fcd7a3, #fbc2eb);
-    }
-*/
     .lienket-btn {
       background: linear-gradient(90deg, #496bb4, #d55884);
     }
 
     .lienket-btn:hover {
       background: linear-gradient(90deg, #6a89cc, #e65b8c);
+    }
+
+    .drive-btn {
+      background: linear-gradient(90deg, #0ba637, #c1c724);
+    }
+
+    .drive-btn:hover {
+      background: linear-gradient(90deg, #10d548, #e6ed22);
+    }
+    
+    .mailtoadmin-btn {
+      background: linear-gradient(90deg, #4285F4, #34A853, #FBBC05, #EA4335);
+    }
+
+    .mailtoadmin-btn:hover {
+      background: linear-gradient(90deg, #5a98fc, #3fcb65, #fdc827, #f86356);
+    }
+
+    .mailtohotro-btn {
+      background: linear-gradient(90deg, #4285F4, #34A853, #FBBC05, #EA4335);
+    }
+
+    .mailtohotro-btn:hover {
+      background: linear-gradient(90deg, #5a98fc, #3fcb65, #fdc827, #f86356);
     }
 
     .footer {
@@ -294,23 +290,10 @@
   </style>
 </head>
 <body>
-  <!-- Music Controls 
-  <div class="controls">
-    <button class="icon-btn" id="musicToggleBtn" title="Bật/Tắt nhạc">
-      <i data-feather="play"></i>
-    </button>
-    <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1" title="Âm lượng" />
-  </div>
--->
-  
   <!-- Share Button -->
   <button class="share-btn" onclick="shareWebsite()" title="Chia sẻ">
     <i data-feather="share-2"></i>
   </button>
-
-  <!-- Background Music 
-  <audio id="backgroundMusic" src="/nhacnen.mp3" autoplay loop></audio>
--->
 
   <!-- Card Content -->
   <div class="card">
@@ -320,75 +303,33 @@
 
     <!-- Social Links -->
     <div class="social">
-      <a href="https://www.facebook.com/groups/716837637373" class="facebook" target="_blank" data-tooltip="Facebook">
+      <a href="https://www.facebook.com/groups/716837637373554/?ref=share&mibextid=NSMWBT" class="facebook" target="_blank" data-tooltip="Facebook">
         <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
       </a>
-    <!--
+    <div class="social">
+      <a href="mailto:odaycotailieuthcs.thpt@gmail.com" class="email" target="_blank" data-tooltip="Email">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email Admin">
+      </a>
+    <!-- Mẫu
       <a href="https://www.youtube.com/mau" class="youtube" target="_blank" data-tooltip="YouTube">
         <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube">
-      </a>
-      <a href="https://www.tiktok.com/mau" class="tiktok" target="_blank" data-tooltip="TikTok">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok">
-      </a>
-      <a href="https://mau.my.canva.site/mau" class="canva" target="_blank" data-tooltip="Canva">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/canva.svg" alt="Canva">
-      </a>
-      <a href="https://bit.ly/m/mau" class="bitly" target="_blank" data-tooltip="Bitly">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/bitly.svg" alt="Bitly">
-      </a>
-    -->
-      <a href="mailto:odaycotailieuthcs.thpt@gmail.com" class="email" data-tooltip="Email">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email">
-      </a>
-    <!--
-      <a href="https://zalo.me/0379065349" class="zalo" target="_blank" data-tooltip="Zalo">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/zalo.svg" alt="Zalo">
       </a>
     -->  
     </div>
 
-    <!-- Game Button 
-    <button class="btn game-btn" onclick="window.open('/dino', '_blank')">Dino - Nhật Đăng </button>
--->
-    <!-- TTS Button 
-    <button class="btn tts-btn" onclick="window.open('/tts', '_blank')">Chuyển Văn Bản Thành Giọng Nói - Nhật Đăng</button>
--->
-    <!-- dinhdanganh Buton 
-    <button class="btn dinhdanganh-btn" onclick="window.open('/chuyen-doi-dinh-dang-loai-anh', '_blank')">Chuyển Đổi Định Dạng Loại Ảnh - Nhật Đăng</button>
--->
-    <!-- nen-gradient-pastel Button 
-    <button class="btn maunen-btn" onclick="window.open('/nen-gradient-pastel', '_blank')">Nền Gradient Pastel - Nhật Đăng</button>
--->
     <!-- Nút mẫu
     <button class="tennut-btn" onclick="window.open('nơi chuyển tới (web; thư mục;...)', '_blank')">Tên nút</button>
 -->
     <button class="btn lienket-btn" onclick="window.open('https://www.facebook.com/groups/716837637373554/?ref=share&mibextid=NSMWBT', '_blank')">Nhóm trên Facebook</button>
+    <button class="btn drive-btn" onclick="window.open('https://drive.google.com/drive/folders/17exzWOtvC8MDzSaJ4kXih0tvZU2CmNC_?usp=sharing', '_blank')">Tài liệu trên Driver</button>
+    <button class="btn mailtoadmin-btn" onclick="window.open('mailto:odaycotailieuthcs.thpt@gmail.com', '_blank')">Email của Admin</button>
+    <button class="btn mailtohotro-btn" onclick="window.open('mailto:tailieuthcs.thpt.hotro@gmail.com', '_blank')">Email hỗ trợ</button>
   </div>
 
   <!-- Toast Notification -->
   <div class="toast">Cảm ơn bạn đã ghé thăm và ủng hộ Tài Liệu THCS - THPT!</div>
 
   <script>
-    // Music Controls
-    //const music = document.getElementById("backgroundMusic");
-    //const volumeControl = document.getElementById("volumeControl");
-    //const toggleBtn = document.getElementById("musicToggleBtn");
-
-    //toggleBtn.addEventListener("click", () => {
-      //if (music.paused) {
-        //music.play();
-        //toggleBtn.innerHTML = '<i data-feather="pause"></i>';
-      //} else {
-        //music.pause();
-        //toggleBtn.innerHTML = '<i data-feather="play"></i>';
-      //}
-      //feather.replace();
-    //});
-
-    //volumeControl.addEventListener("input", function () {
-      //music.volume = this.value;
-    //});
-
     function shareWebsite() {
       const textToCopy = "Trang chủ của Tài Liệu THCS - THPT: https://tailieuthcs-thpt.github.io";
       navigator.clipboard.writeText(textToCopy).then(() => {
