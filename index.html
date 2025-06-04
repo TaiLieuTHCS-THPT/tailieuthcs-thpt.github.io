@@ -29,7 +29,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
+      min-height: 100vh; /* Chiều cao tối thiểu 100% viewport */
     }
 
 
@@ -97,8 +97,8 @@
     /* Card */
     .card {
       background: white;
-      padding: 40px;
-      padding-inline: 20px; /* THÊM DÒNG NÀY */
+      padding: 20px;
+      padding: 20px; /* ĐỔI LẠI NHƯ CŨ */
       border-radius: 15px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       text-align: center;
@@ -106,17 +106,28 @@
       width: 100%;
     }
 
+    @media (max-width: 600px) {
+      body {
+        padding: 4px !important; /* Sát viền màn hình hơn */
+      }
+      .card {
+        padding: 12px 6vw !important;
+        border-radius: 10px;
+      }
+    }
+
     .avatar {
-      width: 170px;
-      height: 170px;
-      border-radius: 50%;
+      width: 200px; /* Kích thước ảnh đại diện */
+      height: 200px; /* Kích thước ảnh đại diện */
+      border-radius: 50%; /* Bo tròn ảnh đại diện */
       object-fit: cover;
-      margin-bottom: 20px;
+      margin-top: 20px;
+      margin-bottom: 20px; /* Giảm khoảng cách giữa ảnh đại diện và tiêu đề */
     }
 
     h1 {
-      margin-bottom: 6px;
-      margin-top: -17px;
+      margin-bottom: 0px; /* Giảm khoảng cách giữa tiêu đề và đoạn văn */
+      margin-top: -10px; /* Giảm khoảng cách giữa tiêu đề và ảnh đại diện */
       color: #5271ff;
       font-size: 35px;
       font-weight: bold;
@@ -124,13 +135,30 @@
     }
 
     p {
-      font-size: 20px;
+      font-size: 20px; 
       color: #555;
-      margin-top: 0;
-      margin-bottom: 12px;
+      margin-top: 7px; /* Giảm khoảng cách giữa đoạn văn và tiêu đề */
+      margin-bottom: 28px; /* Giảm khoảng cách giữa đoạn văn và các nút bên dưới */
       font-weight: 500;
       text-align: justify;
     }
+    .p1 {
+      font-size: 20px; 
+      color: #555;
+      margin-top: 7px; /* Giảm khoảng cách giữa đoạn văn và tiêu đề */
+      margin-bottom: 10px; /* Giảm khoảng cách giữa đoạn văn và các nút bên dưới */
+      font-weight: 500;
+      text-align: center;
+    }
+    .p2 {
+      font-size: 20px; 
+      color: #555;
+      margin-top: 7px; /* Giảm khoảng cách giữa đoạn văn và tiêu đề */
+      margin-bottom: 5px; /* Giảm khoảng cách giữa đoạn văn và các nút bên dưới */
+      font-weight: 500;
+      text-align: center;
+    }
+
 
     /* Social Links */
     .social {
@@ -138,6 +166,7 @@
       gap: 12px;
       justify-content: center;
       flex-wrap: wrap;
+      margin-bottom: 2px;
     }
 
     .social a {
@@ -150,10 +179,26 @@
       text-decoration: none;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
     .social a:hover {
       transform: scale(1.1);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .social a::after {
+      content: attr(data-tooltip); /* Hiển thị tooltip */
+      position: absolute; /* Vị trí tuyệt đối so với phần tử cha */
+      bottom: -28px; /* Hiển thị bên dưới nút */
+      background: rgba(0, 0, 0, 0.75); /* Nền mờ */
+      color: white; /* Màu chữ trắng */
+      font-size: 12px; /* Kích thước chữ nhỏ */
+      padding: 4px 8px; /* Padding cho tooltip */
+      border-radius: 4px; /* Bo tròn góc */
+      opacity: 0; /* Ẩn tooltip ban đầu */
+      transition: opacity 0.3s; /* Hiệu ứng chuyển đổi mờ dần */
+      pointer-events: none; /* Không cho phép tương tác với tooltip */
+      white-space: nowrap; /* Ngăn ngắt dòng trong tooltip */
+    }
+    .social a:hover::after {
+      opacity: 1; /* Hiển thị tooltip khi hover */
     }
 
     .social img {
@@ -172,23 +217,6 @@
     .zalo     { background: #0180ef; }
     */
 
-    .social a::after {
-      content: attr(data-tooltip); /* Hiển thị tooltip */
-      position: absolute; /* Vị trí tuyệt đối so với phần tử cha */
-      bottom: -28px; /* Hiển thị bên dưới nút */
-      background: rgba(0, 0, 0, 0.75); /* Nền mờ */
-      color: white; /* Màu chữ trắng */
-      font-size: 12px; /* Kích thước chữ nhỏ */
-      padding: 4px 8px; /* Padding cho tooltip */
-      border-radius: 4px; /* Bo tròn góc */
-      opacity: 0; /* Ẩn tooltip ban đầu */
-      transition: opacity 0.3s; /* Hiệu ứng chuyển đổi mờ dần */
-      pointer-events: none; /* Không cho phép tương tác với tooltip */
-      white-space: nowrap; /* Ngăn ngắt dòng trong tooltip */
-    }
-    .social a:hover::after {
-      opacity: 1; /* Hiển thị tooltip khi hover */
-    }
 
     /* Toast */
     .toast {
@@ -223,7 +251,7 @@
       width: 100%; /* Chiếm toàn bộ chiều ngang khung chứa */
       max-width: 500px; /* Giới hạn tối đa chiều rộng nếu khung lớn */
       min-width: 280px; /* Giới hạn tối thiểu chiều rộng nếu khung nhỏ */
-      margin: 10px auto; /* Giảm khoảng cách giữa các nút */
+      margin: 6px auto; /* Giảm khoảng cách giữa các nút */
       color: white; /* Màu chữ trắng */
       font-size: 20px; /* Kích thước chữ */
       padding: 18px 36px; /* Padding cho nút */
@@ -247,10 +275,16 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
+    .dacbiet-btn {
+      background: linear-gradient(90deg, #ff0000, #000dff);
+    }
+    .dacbiet-btn:hover {
+      background: linear-gradient(90deg, #000dff, #ff0000);
+    }
+
     .lienket-btn {
       background: linear-gradient(90deg, #496bb4, #d55884);
     }
-
     .lienket-btn:hover {
       background: linear-gradient(90deg, #6a89cc, #e65b8c);
     }
@@ -258,7 +292,6 @@
     .drive-btn {
       background: linear-gradient(90deg, #0ba637, #c1c724);
     }
-
     .drive-btn:hover {
       background: linear-gradient(90deg, #10d548, #e6ed22);
     }
@@ -266,7 +299,6 @@
     .mailtoadmin-btn {
       background: linear-gradient(90deg, #4285F4, #34A853, #FBBC05, #EA4335);
     }
-
     .mailtoadmin-btn:hover {
       background: linear-gradient(90deg, #5a98fc, #3fcb65, #fdc827, #f86356);
     }
@@ -274,9 +306,15 @@
     .mailtohotro-btn {
       background: linear-gradient(90deg, #4285F4, #34A853, #FBBC05, #EA4335);
     }
-
     .mailtohotro-btn:hover {
       background: linear-gradient(90deg, #5a98fc, #3fcb65, #fdc827, #f86356);
+    }
+
+    .drive2-btn {
+      background: linear-gradient(90deg, #EA4335, #FBBC05, #34A853 ,#4285F4);
+    }
+    .drive2-btn:hover {
+      background: linear-gradient(90deg, #f86356, #fdc827, #3fcb65, #5a98fc);
     }
 
     .footer {
@@ -316,14 +354,22 @@
       </a>
     -->  
     </div>
-
     <!-- Nút mẫu
     <button class="tennut-btn" onclick="window.open('nơi chuyển tới (web; thư mục;...)', '_blank')">Tên nút</button>
 -->
+    <h1 style="text-align: center; display: block; width: 100%; margin-top: 4px; margin-bottom: 6px;">📌 ĐẶC BIỆT 📌:</h1>
+    <button class="btn dacbiet-btn" onclick="window.open('https://drive.google.com/drive/folders/1oK6kFkrB8y6K7disFMH0df_U0PMKVWWY?usp=drive_link')">TÀI LIỆU ĐỀ THI VÀO 10 CÁC TỈNH - MÔN TOÁN</button>
+    <button class="btn dacbiet-btn" onclick="window.open('https://drive.google.com/drive/folders/1PKOTHZbmIoA66cxB6XvGO0nlwVZTBWUU?usp=drive_link')">TÀI LIỆU ĐỀ THI VÀO 10 CÁC TỈNH - MÔN NGỮ VĂN</button>
+    <p style="text-align: center;" class="p1">------------------------------</p>
     <button class="btn lienket-btn" onclick="window.open('https://www.facebook.com/groups/716837637373554/?ref=share&mibextid=NSMWBT', '_blank')">Nhóm trên Facebook</button>
-    <button class="btn drive-btn" onclick="window.open('https://drive.google.com/drive/folders/17exzWOtvC8MDzSaJ4kXih0tvZU2CmNC_?usp=sharing', '_blank')">Tài liệu trên Driver</button>
     <button class="btn mailtoadmin-btn" onclick="window.open('mailto:odaycotailieuthcs.thpt@gmail.com', '_blank')">Email của Admin</button>
     <button class="btn mailtohotro-btn" onclick="window.open('mailto:tailieuthcs.thpt.hotro@gmail.com', '_blank')">Email hỗ trợ</button>
+    <button class="btn drive-btn" onclick="window.open('https://drive.google.com/drive/folders/17exzWOtvC8MDzSaJ4kXih0tvZU2CmNC_?usp=sharing', '_blank')">Tài liệu trên Drive</button>
+    <p style="text-align: center;" class="p2">Liên kết riêng thư mục tài liệu từng môn trên Drive:</p>
+    <button class="btn drive2-btn" onclick ="window.open('https://drive.google.com/drive/folders/1hxUnOLVDfZuTaJealC77I-WJJXaw95UH?usp=drive_link', '_blank')">Tài liệu - Toán</button>
+    <button class="btn drive2-btn" onclick ="window.open('https://drive.google.com/drive/folders/1cINavhoobcgUulEaZ52GIhFsk7HjhehC?usp=drive_link', '_blank')">Tài liệu - KHTN</button>
+    <button class="btn drive2-btn" onclick ="window.open('https://drive.google.com/drive/folders/1AnXpHdIvNxF3RBZGY2VVDLgoFRuxTpYz?usp=drive_link', '_blank')">Tài liệu - Tiếng Anh</button>
+    <button class="btn drive2-btn" onclick ="window.open('https://drive.google.com/drive/folders/1VBGm3pBZYy9MlzxVnGYvFpUqCUME4hxE?usp=drive_link', '_blank')">Tài liệu - Ngữ Văn</button>
   </div>
 
   <!-- Toast Notification -->
