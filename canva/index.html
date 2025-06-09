@@ -92,9 +92,9 @@
 
             const sortedKeys = Object.keys(data).sort(); // Sắp xếp theo thứ tự a b c 1 2 3 ...
             sortedKeys.forEach(key => {
-                const option = document.createElement('option');
-                option.value = key;
-                datalist.appendChild(option);
+            const option = document.createElement('option');
+            option.value = key;
+            datalist.appendChild(option);
             });
 
             inputElement.setAttribute('list', 'codeSuggestions');
@@ -102,10 +102,16 @@
 
             // Thêm sự kiện bấm Enter
             inputElement.addEventListener('keypress', (event) => {
-                if (event.key === 'Enter') {
-                    goToPage();
-                    inputElement.blur(); // Thoát khung nhập
-                }
+            if (event.key === 'Enter') {
+                goToPage();
+                inputElement.blur(); // Thoát khung nhập
+            }
+            });
+
+            // Thêm sự kiện tắt gợi ý khi mất focus
+            inputElement.addEventListener('blur', () => {
+            inputElement.removeAttribute('list');
+            setTimeout(() => inputElement.setAttribute('list', 'codeSuggestions'), 100); // Đặt lại gợi ý sau khi mất focus
             });
         });
     </script>
